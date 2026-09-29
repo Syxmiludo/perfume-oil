@@ -1,0 +1,139 @@
+/* ===== THEME COLORS: light mode, dark mode (auto) and manual dark toggle
+   Change the colors here to rebrand the whole site ===== */
+:root{--bg:#fbf8f1;--card:#efe7d6;--ink:#1a1712;--mute:#6f675a;--line:#d9cfba;--sky:#b9d3e4;--gold:#b8893b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15130f;--card:#24201a;--ink:#f3ecdc;--mute:#a49a86;--line:#3a3429;--sky:#2c4050;--gold:#d3a555}}
+:root[data-theme="dark"]{--bg:#15130f;--card:#24201a;--ink:hsl(42, 82%, 57%);--mute:#a49a86;--line:#3a3429;--sky:#2c4050;--gold:#d3a555}
+/* ===== BASE STYLES: page reset, fonts, links, buttons ===== */
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:300 15px/1.6 Jost,system-ui,sans-serif}
+h1,h2,h3,.serif{font-family:Italiana,'Didot','Bodoni MT',Georgia,serif;font-weight:400;margin:0}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+/* ===== HEADER: sticky top bar with logo and theme button ===== */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .logo{font-family:Italiana,serif;font-size:26px;letter-spacing:.08em}
+header nav{display:flex;gap:22px;font-size:13px}
+header button{background:none;border:0;padding:4px}
+/* ===== HERO: big headline banner at the top ===== */
+.hero{margin:0 16px;min-height:520px;background:var(--sky);border-radius:4px;position:relative;overflow:hidden;display:flex;align-items:center;padding:0 clamp(24px,6vw,80px)}
+.hero h1{font-size:clamp(44px,8vw,96px);line-height:.95;max-width:9ch;position:relative;z-index:2}
+.hero a{display:inline-block;margin-top:28px;font-size:12px;letter-spacing:.14em;border-bottom:1px solid var(--ink);padding-bottom:3px;position:relative;z-index:2}
+.hero svg{position:absolute;right:4%;bottom:0;height:92%;max-width:60%}
+/* ===== STATEMENT: large centered tagline with small pills ===== */
+.statement{text-align:center;font-family:Italiana,serif;font-size:clamp(28px,5.4vw,64px);line-height:1.25;padding:90px 20px;max-width:1100px;margin:auto}
+.pill{display:inline-block;width:1.7em;height:.85em;border-radius:99px;vertical-align:middle;margin:0 .1em;background:linear-gradient(120deg,var(--gold),var(--sky))}
+/* ===== FEATURE CARDS: the two side-by-side collections ===== */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:0 16px}
+.duo article{text-align:center}
+.duo .img{aspect-ratio:1/.95;background:var(--card);display:grid;place-items:center;border-radius:4px}
+.duo .img svg{height:72%}
+.duo h3{font-size:22px;margin:18px 0 4px}
+.duo p{margin:0 auto 10px;color:var(--mute);font-size:13px;max-width:34ch}
+.link{font-size:11px;letter-spacing:.16em;border-bottom:1px solid var(--ink);padding:0 0 2px;background:none;border-top:0;border-inline:0}
+/* ===== BANNER: full-width Body Perfume Oil section ===== */
+.banner{margin:16px;min-height:420px;border-radius:4px;background:linear-gradient(115deg,#c9d5cc,#e6ddc9 55%,#efe7d6);display:grid;place-items:end center;text-align:center;padding:40px;color:#1a1712;position:relative;overflow:hidden}
+.banner::before{content:"";position:absolute;left:8%;top:12%;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,#fff9,#fff0 70%)}
+.banner h3{font-size:30px}.banner p{margin:4px 0 12px;font-size:13px}
+/* ===== SHOP: heading, category tabs and product grid ===== */
+.popular{padding:90px 16px 40px;text-align:center}
+.popular h2{font-size:clamp(32px,4vw,46px)}
+.tabs{display:flex;justify-content:center;gap:18px;margin:18px 0 32px;flex-wrap:wrap}
+.tabs button{background:none;border:0;border-bottom:1px solid transparent;padding:2px 0;font-size:11px;letter-spacing:.12em;color:var(--mute)}
+.tabs button[aria-pressed="true"]{color:var(--ink);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center}
+.item{background:none;border:0;padding:0;text-align:center}
+.item .img{aspect-ratio:1;background:var(--card);border-radius:4px;display:grid;place-items:center;transition:transform .25s}
+.item:hover .img{transform:translateY(-4px)}
+.item .img svg{height:78%}
+.item b{display:block;font:400 17px Italiana,serif;margin-top:14px;letter-spacing:.02em}
+.item span{font-size:12px;color:var(--mute)}
+/* ===== PICKS: Top 10 and Men's best sellers cards ===== */
+.picks{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:60px 16px 80px}
+.picks .img{aspect-ratio:1/1.05;background:var(--card);border-radius:4px;display:grid;place-items:center}
+.picks .img svg{height:68%}
+.picks article{text-align:center}.picks h3{font-size:22px;margin:16px 0 6px}
+/* ===== FOOTER: contact links and big PARFS wordmark ===== */
+footer{background:var(--card);padding:50px 24px 10px}
+.foot{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;font-size:13px}
+.foot p{margin:0 0 10px;max-width:30ch}
+.foot ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.wa-foot{display:inline-block;border:1px solid var(--ink);padding:10px 18px;font-size:12px;letter-spacing:.1em}
+.mark{font-family:Italiana,serif;font-size:clamp(90px,26vw,360px);line-height:1;text-align:center;margin:30px 0 0;letter-spacing:.02em}
+.copy{text-align:center;font-size:12px;color:var(--mute);padding-bottom:16px}
+
+/* ===== EXTRAS: announcement bar, product card hover, Top 10 badge,
+   pagination, trust strip, floating WhatsApp button ===== */
+.ann{background:var(--ink);color:var(--bg);text-align:center;font-size:12px;letter-spacing:.06em;padding:8px 12px}
+.item{position:relative;display:block;width:100%}
+.item .img{position:relative;overflow:hidden;border-radius:14px}
+.item:hover .img{transform:none;box-shadow:0 14px 30px -14px #0006}
+.item .img svg{transition:transform .35s}.item:hover .img svg{transform:scale(1.06)}
+.item em{display:block;font-style:normal;font-size:11px;letter-spacing:.12em;color:var(--gold);margin-top:14px;text-transform:uppercase}
+.item b{margin-top:2px}
+.qv{position:absolute;left:12px;right:12px;bottom:12px;background:var(--bg);color:var(--ink);text-decoration:none;font-size:12px;padding:8px;border-radius:99px;opacity:0;transform:translateY(8px);transition:.25s}
+.item:hover .qv,.item:focus-visible .qv{opacity:1;transform:none}
+@media (hover:none){.qv{opacity:1;transform:none;background:#fffc;color:#1a1712;font-size:11px;left:auto;right:8px;bottom:8px;padding:5px 12px}}
+.badge{position:absolute;left:10px;top:10px;z-index:2;background:var(--ink);color:var(--bg);font:400 14px Italiana,serif;font-style:normal;padding:2px 12px;border-radius:99px}
+.pager{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:40px;flex-wrap:wrap}
+.pager button{min-width:42px;height:42px;padding:0 14px;border-radius:99px;border:1px solid var(--line);background:none;font-size:14px;transition:.2s}
+.pager button:hover:not(:disabled){border-color:var(--ink)}
+.pager button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.pager button:disabled{opacity:.35;cursor:not-allowed}
+.hero,.duo .img,.banner,.picks .img{border-radius:18px}
+.link{cursor:pointer}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:0 16px 70px;text-align:center}
+.trust div{border:1px solid var(--line);border-radius:14px;padding:22px 14px}
+.trust b{display:block;font:400 20px Italiana,serif}.trust span{font-size:13px;color:var(--mute)}
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;display:flex;align-items:center;gap:8px;background:#1f9d55;color:#fff;padding:12px 18px;border-radius:99px;font-weight:500;box-shadow:0 8px 24px -8px #0008}
+.fab svg{width:20px;height:20px;fill:#fff}
+.buy{border-radius:99px}.row button,.qty{border-radius:99px}.sheet{border-radius:18px}
+@media (max-width:760px){.trust{grid-template-columns:1fr}.grid{gap:12px}.item b{font-size:15px}}
+/* ===== PHOTOS: any <img> placed inside a picture box fills it ===== */
+.item .img,.duo .img,.picks .img,.sheet .img{position:relative;overflow:hidden}
+.item .img>img,.duo .img>img,.picks .img>img,.sheet .img>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.item:hover .img>img{transform:scale(1.05);transition:transform .35s}
+
+/* ===== PRODUCT POPUP: detail window with size, quantity and WhatsApp button ===== */
+.modal{position:fixed;inset:0;z-index:50;background:#0007;display:none;align-items:center;justify-content:center;padding:16px}
+.modal.open{display:flex}
+.sheet{background:var(--bg);width:min(900px,100%);max-height:100%;overflow:auto;border-radius:6px;display:grid;grid-template-columns:1fr 1fr;animation:pop .25s ease}
+@keyframes pop{from{opacity:0;transform:translateY(24px)}}
+.sheet .img{background:var(--card);display:grid;place-items:center;min-height:380px}
+.sheet .img svg{height:320px}
+.info{padding:34px 30px;position:relative}
+.info h2{font-size:34px}.info .price{font-size:20px;margin:6px 0 14px}
+.info .close{position:absolute;right:14px;top:10px;background:none;border:0;font-size:28px;line-height:1}
+.notes{color:var(--mute);margin:0 0 16px}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 18px}
+.row button{border:1px solid var(--line);background:none;padding:7px 14px;font-size:13px}
+.row button[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--bg)}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line)}
+.qty button{background:none;border:0;width:36px;height:36px;font-size:18px}
+.qty span{min-width:30px;text-align:center}
+.buy{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:22px;background:#1f9d55;color:#fff;padding:14px;font-weight:500;letter-spacing:.04em;border-radius:3px}
+.buy svg{width:20px;height:20px;fill:#fff}
+small{color:var(--mute);display:block;margin-top:10px;font-size:12px}
+/* ===== RESPONSIVE: phone layout (screens under 760px wide)
+   NOTE: popup styles are in the next section, then mobile rules here ===== */
+@media (max-width:760px){
+ .grid{grid-template-columns:repeat(2,1fr)}
+ .duo,.picks{grid-template-columns:1fr}
+ .sheet{grid-template-columns:1fr}.sheet .img{min-height:260px}.sheet .img svg{height:220px}
+ header nav{display:none}.hero{min-height:440px;align-items:flex-start;padding-top:40px}
+ .hero svg{opacity:.85;height:60%}
+}
+/* ===== ACCESSIBILITY: turn off animations if the visitor prefers it ===== */
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* ===== IMAGES: photos fill their boxes; drawn bottle shows if a photo is missing ===== */
+.hero>img.cover,.banner>img.cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero>div{position:relative;z-index:2}
+.banner>div{position:relative;z-index:1}
+.ph{position:absolute;inset:0;display:grid;place-items:center}
+.ph svg{height:78%}
+.hero .ph{inset:auto;right:4%;bottom:0;height:92%;display:block}
+.hero .ph svg{position:static;height:100%;max-width:none}
+.item[hidden]{display:none}
